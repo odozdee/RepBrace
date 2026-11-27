@@ -13,11 +13,13 @@ Rehabilitation exercises often require patients to complete repetitions within a
 ## Key Features
 
 - Adjustable range-of-motion calibration using buttons.
-- Joint rotation measurement using a potentiometer.
-- Repetition tracking based on calibrated range of motion.
-- Audible and visual feedback using buzzers and an LED.
-- Compact, battery-powered brace and pager design.
-
+- Real-time joint rotation measurement using a potentiometer.
+- Repetition tracking and quality assessment based on calibrated range of motion.
+- Audible feedback from the brace when the target range of motion is reached.
+- Wireless communication between the brace and pager.
+- Automatic pager alerts after three incomplete repetitions.
+- Compact, rechargeable brace and pager design.
+  
 ## System Design
 
 The system consists of two devices: the brace and the pager. Both incorporate ESP32 microcontrollers and rechargeable battery power systems.
@@ -31,6 +33,15 @@ The brace rotates around a mechanical pivot. A sprocket coupled to a potentiomet
 ### Pager
 
 The pager incorporates an ESP32, buttons, buzzer and LED in a compact enclosure for user interaction and feedback.
+
+## System Operation
+
+1. The patient calibrates the brace by setting the initial and target joint positions using the onboard buttons.
+2. The ESP32 continuously processes potentiometer readings to monitor joint movement during rehabilitation exercises.
+3. When the patient reaches the target range of motion, the brace's buzzer sounds to confirm a successful repetition.
+4. Repetitions that fail to reach the calibrated target are recorded as incomplete.
+5. After three incomplete repetitions, the brace wirelessly transmits an alert to the handheld pager.
+6. The pager activates its buzzer and LED to notify the supervising instructor of poor exercise performance.
 
 ## Hardware Components
 
